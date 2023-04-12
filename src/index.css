@@ -14,7 +14,6 @@
     "mcontent mcontent mcontent lateral"
     "footah footah footah footah"
   ;
-  grid-template-columns: auto auto auto 22%;
   grid-template-rows: 5.5rem 70px auto 70px;
 }
 
