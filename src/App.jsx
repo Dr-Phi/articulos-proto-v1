@@ -8,7 +8,7 @@ function App() {
     <div>
       <div id="layout" className="md:grid-cols-[auto_auto_auto_20rem]">
         <header className="header flex">
-          <div className=" min-h-full min-w-[46vw] bg-gradient-to-r from-black to-blue-900 pe-2 pt-6 text-right text-3xl font-bold text-white">
+          <div className=" min-h-full min-w-[46vw] bg-gradient-to-r from-black to-[#023a8a] pe-2 pt-6 text-right text-3xl font-bold text-white">
             <img
               src="../src/images/pill_icon.png"
               alt=""
@@ -19,12 +19,14 @@ function App() {
             />
             GPT
           </div>
-          <p className="me-auto pt-6 text-left text-3xl font-bold">Pills</p>
+          <p className="me-auto pt-6 text-left text-3xl font-bold text-[#00ece1]">
+            Pills
+          </p>
         </header>
 
-        <nav className="navi ms-auto flex">
-          <div className="h-full max-w-[30%] bg-white"></div>
-          <ul className="ms-auto flex min-w-[54vw] justify-end bg-gradient-to-r from-black to-blue-900 pt-2 text-lg font-semibold text-white">
+        <nav className="navi  flex content-start justify-items-start">
+          <div className="h-full w-full "></div>
+          <ul className=" flex min-w-[54vw] justify-end bg-gradient-to-r from-black to-blue-900 pt-2 text-lg font-semibold text-white">
             <li>
               <a className="ms-[2.45vw] block" href="/#">
                 Inicio
@@ -56,10 +58,7 @@ function App() {
           <Listado />
         </section>
 
-        <aside
-          id="lateral"
-          className=" border border-red-600 border-s-slate-200 bg-slate-50 p-5"
-        >
+        <aside id="lateral" className=" border-s-slate-200 bg-slate-50 p-5">
           <Buscador />
 
           <Crear />

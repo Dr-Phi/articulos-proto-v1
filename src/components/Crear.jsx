@@ -7,6 +7,20 @@ export const Crear = () => {
     description: "",
   });
 
+  const saveInStorage = (artic) => {
+    // get what we have in local storage
+    let items = JSON.parse(localStorage.getItem("artics"));
+
+    if (Array.isArray(items)) {
+      items.push(artic);
+    } else {
+      items = [artic];
+    }
+    localStorage.setItem("artics", JSON.stringify(items));
+
+    return artic;
+  };
+
   const getFormData = (e) => {
     e.preventDefault();
     let target = e.target;
@@ -21,7 +35,8 @@ export const Crear = () => {
 
     setArticState(artic);
 
-    console.log(articState);
+    // Save in Local storage
+    saveInStorage(artic);
   };
 
   return (
