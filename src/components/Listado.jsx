@@ -35,24 +35,26 @@ export const Listado = ({ listadoState, setListadoState }) => {
           return (
             <article
               key={artic.id}
-              className="artic-item m-5 grow rounded-lg bg-white  px-6 py-14 text-center shadow shadow-slate-400 md:max-w-[17rem]"
+              className="artic-item relative m-5 grow rounded-lg bg-white  px-6 py-14 text-center shadow shadow-slate-400 md:max-w-[17rem]"
             >
               <h3 className="font-bold">{artic.title}</h3>
               <p className="description">{artic.description}</p>
 
               <button
                 onClick={() => setEdit(artic.id)}
-                className="me-3 hover:bg-orange-400"
+                className="edit absolute right-1 top-1"
+                id="edit-btn"
               >
-                Editar
+                <span class="absolute right-0 top-0 inline-flex h-full w-full rounded-full bg-blue-300 opacity-50 hover:animate-ping"></span>
               </button>
               <button
                 onClick={() => {
                   eraseArtic(artic.id);
                 }}
-                className="delete hover:bg-red-800"
+                className="delete absolute bottom-1 right-1 hover:bg-red-800"
+                id="delete-btn"
               >
-                Borrar
+                <span class="absolute right-0 top-0 inline-flex h-full w-full rounded-full bg-red-300 opacity-50 hover:animate-ping"></span>
               </button>
               {edit === artic.id && (
                 <Edit

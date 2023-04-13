@@ -34,17 +34,24 @@ export const Crear = ({ setListadoState }) => {
     <div className="add m-5 mx-2 w-[90%] rounded-lg bg-white p-5 pt-2 text-center shadow shadow-slate-400">
       <h3 className="title font-semibold">{title}</h3>
       <form onSubmit={getFormData}>
-        <input type="text" id="title" name="title" placeholder="Titulo" />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          className="focus:ring-2"
+          placeholder="Titulo"
+        />
         <textarea
           id="description"
           name="description"
+          className="focus:ring-2"
           placeholder="Descripción"
         ></textarea>
         <input
           type="submit"
           id="save"
           value="Guardar"
-          className="hover:bg-blue-900"
+          className="mt-3 cursor-pointer rounded-sm bg-[#0b70e1] px-4 py-1 text-[17px] font-semibold text-white transition-colors hover:bg-blue-900"
         />
       </form>
     </div>

@@ -41,7 +41,11 @@ export const Edit = ({ artic, getArtics, setEdit, setListadoState }) => {
           defaultValue={artic.description}
           className="edited_description"
         ></textarea>
-        <input type="submit" className="edit" value="Actualizar" />
+        <input
+          type="submit"
+          className="edit mt-3 cursor-pointer rounded-sm bg-[#0b70e1] px-4 py-1 text-[17px] font-semibold text-white transition-colors hover:bg-blue-900"
+          value="Actualizar"
+        />
       </form>
     </div>
   );
