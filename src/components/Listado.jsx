@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Edit } from "./Edit";
 
 export const Listado = ({ listadoState, setListadoState }) => {
   // const [listadoState, setListadoState] = useState([]);
+
+  const [edit, setEdit] = useState(0);
 
   useEffect(() => {
     getArtics();
@@ -37,7 +40,12 @@ export const Listado = ({ listadoState, setListadoState }) => {
               <h3 className="font-bold">{artic.title}</h3>
               <p className="description">{artic.description}</p>
 
-              <button className="me-3 hover:bg-orange-400">Editar</button>
+              <button
+                onClick={() => setEdit(artic.id)}
+                className="me-3 hover:bg-orange-400"
+              >
+                Editar
+              </button>
               <button
                 onClick={() => {
                   eraseArtic(artic.id);
@@ -46,6 +54,14 @@ export const Listado = ({ listadoState, setListadoState }) => {
               >
                 Borrar
               </button>
+              {edit === artic.id && (
+                <Edit
+                  artic={artic}
+                  getArtics={getArtics}
+                  setEdit={setEdit}
+                  setListadoState={setListadoState}
+                />
+              )}
             </article>
           );
         })
