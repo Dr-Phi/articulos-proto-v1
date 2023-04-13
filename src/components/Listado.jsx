@@ -4,7 +4,6 @@ export const Listado = ({ listadoState, setListadoState }) => {
   // const [listadoState, setListadoState] = useState([]);
 
   useEffect(() => {
-    console.log("comp list artics montado");
     getArtics();
   }, []);
 
@@ -12,11 +11,23 @@ export const Listado = ({ listadoState, setListadoState }) => {
     let artics = JSON.parse(localStorage.getItem("artics"));
 
     setListadoState(artics);
+
+    return artics;
+  };
+
+  const eraseArtic = (id) => {
+    let saved_artics = getArtics();
+    //Filter list of artics to eliminate the selected one
+    let new_arr_artics = saved_artics.filter((artic) => artic.id !== +id);
+
+    setListadoState(new_arr_artics);
+    //update data in local storage
+    localStorage.setItem("artics", JSON.stringify(new_arr_artics));
   };
 
   return (
     <>
-      {listadoState != null ? (
+      {listadoState.length > 0 && listadoState != null ? (
         listadoState.map((artic) => {
           return (
             <article
@@ -27,7 +38,14 @@ export const Listado = ({ listadoState, setListadoState }) => {
               <p className="description">{artic.description}</p>
 
               <button className="me-3 hover:bg-orange-400">Editar</button>
-              <button className="hover:bg-red-800">Borrar</button>
+              <button
+                onClick={() => {
+                  eraseArtic(artic.id);
+                }}
+                className="delete hover:bg-red-800"
+              >
+                Borrar
+              </button>
             </article>
           );
         })
