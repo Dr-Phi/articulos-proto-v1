@@ -1,25 +1,12 @@
 import React, { useState } from "react";
+import { SaveInStorage } from "../helpers/SaveInStorage";
 
-export const Crear = () => {
+export const Crear = ({ setListadoState }) => {
   const title = "Añadir artículo";
   const [articState, setArticState] = useState({
     title: "",
     description: "",
   });
-
-  const saveInStorage = (artic) => {
-    // get what we have in local storage
-    let items = JSON.parse(localStorage.getItem("artics"));
-
-    if (Array.isArray(items)) {
-      items.push(artic);
-    } else {
-      items = [artic];
-    }
-    localStorage.setItem("artics", JSON.stringify(items));
-
-    return artic;
-  };
 
   const getFormData = (e) => {
     e.preventDefault();
@@ -35,8 +22,12 @@ export const Crear = () => {
 
     setArticState(artic);
 
+    setListadoState((elementos) => {
+      return [...elementos, artic];
+    });
+
     // Save in Local storage
-    saveInStorage(artic);
+    SaveInStorage("artics", artic);
   };
 
   return (

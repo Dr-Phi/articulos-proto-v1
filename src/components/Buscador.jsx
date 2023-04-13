@@ -6,7 +6,11 @@ export const Buscador = () => {
       <h3 className="title font-semibold">Buscador</h3>
       <form>
         <input type="text" id="search_field" />
-        <button id="search" className="hover:bg-blue-900">
+        <button
+          type="button"
+          id="search"
+          className="bg-[#0b70e1] hover:bg-blue-900"
+        >
           Buscar
         </button>
       </form>

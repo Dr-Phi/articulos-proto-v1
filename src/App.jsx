@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Listado } from "./components/Listado";
 import { Buscador } from "./components/Buscador";
 import { Crear } from "./components/Crear";
 
 function App() {
+  const [listadoState, setListadoState] = useState([]);
+
   return (
     <div>
       <div id="layout" className="md:grid-cols-[auto_auto_auto_20rem]">
@@ -55,13 +57,16 @@ function App() {
           className="flex min-w-full grow flex-row flex-wrap items-start  justify-start bg-slate-50"
         >
           {/* Here goes the articles */}
-          <Listado />
+          <Listado
+            listadoState={listadoState}
+            setListadoState={setListadoState}
+          />
         </section>
 
         <aside id="lateral" className=" border-s-slate-200 bg-slate-50 p-5">
           <Buscador />
 
-          <Crear />
+          <Crear setListadoState={setListadoState} />
         </aside>
 
         <footer
